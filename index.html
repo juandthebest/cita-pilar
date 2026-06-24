@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilar, ¿quieres tener una cita conmigo? 💖</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Paso 1: Pregunta -->
+  <div class="tarjeta" id="pregunta">
+    <span class="emoji-grande">🥺</span>
+    <h1>Pilar, ¿quieres tener una cita conmigo?</h1>
+    <p class="sub">Prometo que será inolvidable (y pago yo) 💕</p>
+    <div class="botones">
+      <button id="si" onclick="decirSi()">¡Sí! 💖</button>
+      <button id="no" onmouseover="escapar()" onclick="escapar()">No 🙃</button>
+    </div>
+  </div>
+
+  <!-- Paso 2: Formulario rellenable -->
+  <div class="tarjeta formulario" id="formulario">
+    <span class="emoji-grande">📝</span>
+    <h1>¡Yuju! Cuéntame los detalles</h1>
+    <p class="sub">Rellena esto y me llega al instante 💌</p>
+
+    <form id="form-cita">
+      <!-- Web3Forms: pega aquí tu access key gratuita -->
+      <input type="hidden" name="access_key" value="86fd6099-e846-442a-bedc-f216def4e89b">
+      <input type="hidden" name="subject" value="💖 ¡Pilar ha aceptado la cita!">
+      <input type="hidden" name="from_name" value="Web de la cita">
+      <!-- Honeypot anti-spam (déjalo vacío) -->
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+      <label>Tu nombre
+        <input type="text" name="nombre" value="Pilar" required>
+      </label>
+
+      <label>¿Qué día te viene bien?
+        <input type="text" name="dia" placeholder="Ej: este sábado" required>
+      </label>
+
+      <label>¿A qué hora?
+        <input type="time" name="hora" value="20:00">
+      </label>
+
+      <label>Plan ideal
+        <select name="plan">
+          <option>Cena romántica 🍝</option>
+          <option>Café y paseo ☕</option>
+          <option>Cine y palomitas 🍿</option>
+          <option>Sorpréndeme 🎁</option>
+        </select>
+      </label>
+
+      <label>Un mensajito (opcional)
+        <textarea name="mensaje" rows="2" placeholder="Escribe algo bonito... o una excusa graciosa 😏"></textarea>
+      </label>
+
+      <button type="submit" id="enviar">Enviar 💌</button>
+      <p class="error" id="error"></p>
+    </form>
+  </div>
+
+  <!-- Paso 3: Éxito -->
+  <div class="tarjeta exito" id="exito">
+    <span class="emoji-grande">🎉</span>
+    <h1>¡Lo sabía! 😍</h1>
+    <p class="sub">Tu cita ha quedado confirmada. ¡Te aviso enseguida!</p>
+    <div class="detalle-cita">
+      💌 <strong>Estado:</strong> CONFIRMADA ✅<br>
+      📨 <strong>Respuesta:</strong> enviada con éxito<br>
+      ❤️ <strong>Promesa:</strong> será inolvidable
+    </div>
+    <p class="pista">No se admiten devoluciones. Cita no reembolsable. ❤️</p>
+  </div>
+
+  <script src="cita.js"></script>
+</body>
+</html>
