@@ -1,0 +1,191 @@
+:root {
+  --rosa: #ff5d8f;
+  --rosa-claro: #ffd6e7;
+  --fondo: #fff0f5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #ffd6e7 0%, #ffe9f2 50%, #ffd6e7 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Corazones flotando de fondo */
+.corazon-fondo {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.4;
+  animation: subir linear infinite;
+  user-select: none;
+  pointer-events: none;
+}
+@keyframes subir {
+  from { transform: translateY(100vh) rotate(0deg); }
+  to   { transform: translateY(-10vh) rotate(360deg); }
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 28px;
+  padding: 48px 36px;
+  box-shadow: 0 20px 60px rgba(255, 93, 143, 0.35);
+  text-align: center;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+  z-index: 10;
+  animation: aparecer 0.6s ease;
+}
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.emoji-grande {
+  font-size: 4.5rem;
+  margin-bottom: 8px;
+  display: block;
+  animation: latido 1.2s ease-in-out infinite;
+}
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+h1 {
+  color: var(--rosa);
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+p.sub {
+  color: #a05674;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
+}
+
+.botones {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 64px;
+}
+
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#si {
+  background: var(--rosa);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255, 93, 143, 0.5);
+}
+#si:hover { transform: scale(1.08); }
+
+#no {
+  background: #f0f0f0;
+  color: #888;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Formulario rellenable */
+.formulario { display: none; }
+.formulario.activa { display: block; animation: aparecer 0.5s ease; }
+
+#form-cita {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#form-cita label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a05674;
+}
+#form-cita input[type="text"],
+#form-cita input[type="time"],
+#form-cita select,
+#form-cita textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 11px 14px;
+  border: 2px solid var(--rosa-claro);
+  border-radius: 12px;
+  background: var(--fondo);
+  color: #803a58;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+#form-cita input:focus,
+#form-cita select:focus,
+#form-cita textarea:focus {
+  border-color: var(--rosa);
+}
+#form-cita textarea { resize: vertical; }
+
+#enviar {
+  background: var(--rosa);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255, 93, 143, 0.5);
+  margin-top: 8px;
+  width: 100%;
+}
+#enviar:hover { transform: scale(1.03); }
+#enviar:disabled { opacity: 0.6; cursor: wait; }
+
+/* Honeypot oculto (anti-spam) */
+.hp { display: none !important; }
+
+.error {
+  color: #d23;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 4px;
+  min-height: 1em;
+}
+
+/* Pantalla de éxito */
+.exito { display: none; }
+.exito.activa { display: block; animation: aparecer 0.5s ease; }
+.escondido { display: none !important; }
+
+.detalle-cita {
+  background: var(--fondo);
+  border: 2px dashed var(--rosa);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 24px;
+  text-align: left;
+  color: #803a58;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.detalle-cita strong { color: var(--rosa); }
+
+.pista {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  color: #c99;
+}
